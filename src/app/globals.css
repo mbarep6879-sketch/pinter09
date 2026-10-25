@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Palet "tinta": indigo tinta jari, kertas putih, hijau tanda selesai */
+    --background: 230 33% 98%;
+    --foreground: 232 30% 14%;
+    --card: 0 0% 100%;
+    --muted: 230 24% 94%;
+    --muted-foreground: 231 14% 40%;
+    --border: 230 20% 88%;
+    --ring: 233 52% 42%;
+    --primary: 233 52% 36%;
+    --primary-foreground: 0 0% 100%;
+    --primary-soft: 233 60% 95%;
+    --success: 158 60% 26%;
+    --success-soft: 152 45% 92%;
+    --warning: 32 85% 30%;
+    --warning-soft: 40 90% 92%;
+    --danger: 4 65% 40%;
+    --danger-soft: 4 80% 95%;
+  }
+
+  * { @apply border-border; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "tnum" 1;
+  }
+  :focus-visible { @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+  main { padding: 0 !important; }
+}
